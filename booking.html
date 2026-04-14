@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book an appointment at The Family Dental Care, Gurgaon. Choose your preferred date, time slot, and treatment. Easy online dental appointment booking." />
+  <title>Book Appointment | The Family Dental Care</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Booking page extras */
+    .booking-section { background: var(--bg-light); padding: 80px 0 100px; }
+    .booking-section-header { text-align: center; margin-bottom: 60px; }
+
+    .service-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .service-chip {
+      padding: 9px 18px; border-radius: 50px; border: 1.5px solid var(--border);
+      font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      transition: var(--transition); color: var(--text-dark); background: var(--white);
+    }
+    .service-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .service-chip.selected { border-color: var(--primary); background: var(--primary); color: var(--white); }
+
+    .slots-section { margin-top: 8px; }
+    .slots-legend { display: flex; gap: 20px; margin-bottom: 12px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-light); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .legend-dot.avail { background: var(--primary); }
+    .legend-dot.unavail { background: var(--border); }
+    .legend-dot.selected { background: var(--accent); }
+
+    .submit-btn {
+      width: 100%; padding: 16px; font-size: 1rem; font-weight: 700;
+      border-radius: 50px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white); border: none; cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(42,157,143,0.35); display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(42,157,143,0.45); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .conf-details {
+      background: var(--white); border-radius: var(--radius); padding: 20px 24px;
+      margin: 24px 0; text-align: left; border: 1.5px solid var(--primary);
+    }
+    .conf-detail-row {
+      display: flex; align-items: center; gap: 12px; padding: 8px 0;
+      border-bottom: 1px solid var(--border); font-size: 0.88rem;
+    }
+    .conf-detail-row:last-child { border-bottom: none; }
+    .conf-detail-row i { color: var(--primary); width: 18px; flex-shrink: 0; }
+    .conf-detail-row strong { min-width: 80px; color: var(--text-dark); }
+    .conf-detail-row span { color: var(--text-mid); }
+
+    .trust-badges { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 36px; }
+    .trust-badge {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.82rem; color: rgba(255,255,255,0.8);
+    }
+    .trust-badge i { font-size: 1.1rem; color: rgba(255,255,255,0.6); }
+
+    .notice-box {
+      background: var(--primary-light); border-radius: var(--radius-sm);
+      padding: 12px 16px; font-size: 0.82rem; color: var(--primary);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+    }
+    .notice-box i { flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .service-chips { gap: 8px; }
+      .service-chip { font-size: 0.75rem; padding: 7px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="The Family Dental Care Home">
+        <div class="logo-icon" aria-hidden="true">🦷</div>
+        <div>The Family Dental Care<span>Gurgaon, Haryana</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html" class="nav-cta active">Book Appointment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ─── PAGE HERO ────────────────────────────────────────── -->
+<section class="page-hero" aria-label="Book Appointment hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Book Appointment</span>
+    </nav>
+    <span class="tag" style="background:rgba(42,157,143,0.2);color:#7eebdc;">Easy Online Booking</span>
+    <h1>Book Your Appointment</h1>
+    <p>Choose your preferred date, time, and treatment. We'll confirm your appointment within 2 hours.</p>
+  </div>
+</section>
+
+<!-- ─── BOOKING FORM ──────────────────────────────────────── -->
+<section class="booking-section" aria-label="Appointment booking form">
+  <div class="container">
+
+    <div class="booking-layout">
+
+      <!-- Left: Info Card -->
+      <aside class="booking-info-card" aria-label="Clinic information">
+        <h3>Appointment Info</h3>
+        <p>We're here to make your booking experience as smooth as possible.</p>
+
+        <div class="binfo-item">
+          <i class="fa fa-clock" aria-hidden="true"></i>
+          <div>
+            <strong>Clinic Hours</strong>
+            <span>Monday – Sunday<br>10:00 AM – 8:30 PM</span>
+          </div>
+        </div>
+
+        <div class="binfo-item">
+          <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+          <div>
+            <strong>Location</strong>
+            <span>W-2/1, Basement Floor, W Block<br>Sector 24, DLF Phase 3, Gurgaon<br>Near Sai Baba Mandir</span>
+          </div>
+        </div>
+
+        <div class="binfo-item">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <div>
+            <strong>Call Us</strong>
+            <span><a href="tel:+919319938893" style="color:rgba(255,255,255,0.85);">+91 9319938893</a></span>
+          </div>
+        </div>
+
+        <div class="binfo-item">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <div>
+            <strong>Email Us</strong>
+            <span><a href="mailto:thefamilydentalcaree@gmail.com" style="color:rgba(255,255,255,0.85);">thefamilydentalcaree@gmail.com</a></span>
+          </div>
+        </div>
+
+        <div class="binfo-item">
+          <i class="fa fa-calendar-check" aria-hidden="true"></i>
+          <div>
+            <strong>Confirmation</strong>
+            <span>Appointments confirmed within 2 hours via call or WhatsApp</span>
+          </div>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <i class="fa fa-shield-halved"></i>
+            <span>Safe & Sterile</span>
+          </div>
+          <div class="trust-badge">
+            <i class="fa fa-star"></i>
+            <span>4.9★ Rated</span>
+          </div>
+          <div class="trust-badge">
+            <i class="fa fa-users"></i>
+            <span>2000+ Patients</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Booking Form -->
+      <div>
+        <div class="booking-form-card" aria-label="Booking form">
+          <h3>Schedule Your Visit</h3>
+          <p>Fill in your details below and we'll get back to you shortly to confirm.</p>
+
+          <div class="notice-box">
+            <i class="fa fa-info-circle"></i>
+            <span>After submitting, our team will call or WhatsApp you within 2 hours to confirm your appointment slot.</span>
+          </div>
+
+          <form id="booking-form" novalidate aria-label="Appointment booking form">
+            <!-- Name Row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-fname">First Name <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+                <input type="text" id="b-fname" class="form-input" placeholder="Rahul" required autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="b-lname">Last Name <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+                <input type="text" id="b-lname" class="form-input" placeholder="Sharma" required autocomplete="family-name" />
+              </div>
+            </div>
+
+            <!-- Contact Row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-email">Email Address <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+                <input type="email" id="b-email" class="form-input" placeholder="rahul@email.com" required autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="b-phone">Phone Number <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+                <input type="tel" id="b-phone" class="form-input" placeholder="+91 98765 43210" required autocomplete="tel" />
+              </div>
+            </div>
+
+            <!-- Service -->
+            <div class="form-group">
+              <label>Select Service / Treatment</label>
+              <div class="service-chips" role="group" aria-label="Select treatment">
+                <button type="button" class="service-chip" data-service="General Check-up">🦷 General Check-up</button>
+                <button type="button" class="service-chip" data-service="Teeth Cleaning">✨ Teeth Cleaning</button>
+                <button type="button" class="service-chip" data-service="Teeth Whitening">⚡ Teeth Whitening</button>
+                <button type="button" class="service-chip" data-service="Braces / Aligners">📐 Braces / Aligners</button>
+                <button type="button" class="service-chip" data-service="Dental Implants">🔩 Dental Implants</button>
+                <button type="button" class="service-chip" data-service="Root Canal">💉 Root Canal</button>
+                <button type="button" class="service-chip" data-service="Veneers / Cosmetic">💎 Veneers / Cosmetic</button>
+                <button type="button" class="service-chip" data-service="Child Dentistry">👦 Child Dentistry</button>
+                <button type="button" class="service-chip" data-service="Other">🔍 Other / Not Sure</button>
+              </div>
+              <input type="hidden" id="selected-service" name="service" />
+            </div>
+
+            <!-- Date -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-date">Preferred Date <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+                <input type="date" id="b-date" class="form-input" required />
+              </div>
+              <div class="form-group">
+                <label for="b-dentist">Preferred Dentist</label>
+                <select id="b-dentist" class="form-select">
+                  <option value="">No Preference</option>
+                  <option value="Dr. Rishikesh Mishra">Dr. Rishikesh Mishra</option>
+                  <option value="Dr. Khushboo Pandey">Dr. Khushboo Pandey</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Time Slots -->
+            <div class="form-group">
+              <label>Select a Time Slot <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
+              <div class="slots-section">
+                <div class="slots-legend">
+                  <div class="legend-item"><div class="legend-dot avail"></div> Available</div>
+                  <div class="legend-item"><div class="legend-dot unavail"></div> Unavailable</div>
+                </div>
+                <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:12px;">
+                  <i class="fa fa-info-circle"></i> Time slots shown are indicative. Final confirmation will be via call/WhatsApp.
+                </p>
+                <div class="time-slots-grid" role="group" aria-label="Available time slots">
+                  <button type="button" class="time-slot" aria-label="10:00 AM">10:00 AM</button>
+                  <button type="button" class="time-slot" aria-label="10:30 AM">10:30 AM</button>
+                  <button type="button" class="time-slot unavailable" aria-label="11:00 AM unavailable" aria-disabled="true">11:00 AM</button>
+                  <button type="button" class="time-slot" aria-label="11:30 AM">11:30 AM</button>
+                  <button type="button" class="time-slot unavailable" aria-label="12:00 PM unavailable" aria-disabled="true">12:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="12:30 PM">12:30 PM</button>
+                  <button type="button" class="time-slot" aria-label="2:00 PM">2:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="2:30 PM">2:30 PM</button>
+                  <button type="button" class="time-slot unavailable" aria-label="3:00 PM unavailable" aria-disabled="true">3:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="4:00 PM">4:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="4:30 PM">4:30 PM</button>
+                  <button type="button" class="time-slot" aria-label="5:00 PM">5:00 PM</button>
+                  <button type="button" class="time-slot unavailable" aria-label="5:30 PM unavailable" aria-disabled="true">5:30 PM</button>
+                  <button type="button" class="time-slot" aria-label="6:00 PM">6:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="7:00 PM">7:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="7:30 PM">7:30 PM</button>
+                  <button type="button" class="time-slot" aria-label="8:00 PM">8:00 PM</button>
+                  <button type="button" class="time-slot" aria-label="8:30 PM">8:30 PM</button>
+                </div>
+                <input type="hidden" id="selected-time" name="time" />
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="b-message">Your Concern / Additional Notes</label>
+              <textarea id="b-message" class="form-textarea" placeholder="Describe your dental concern, any anxiety about treatment, or special requirements..." rows="4"></textarea>
+            </div>
+
+            <!-- Privacy note -->
+            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:20px;">
+              <i class="fa fa-lock" style="color:var(--primary);"></i>
+              Your information is kept private and will only be used for appointment confirmation. We never share your data.
+            </p>
+
+            <button type="submit" class="submit-btn" id="book-submit-btn">
+              <i class="fa fa-calendar-check"></i> Confirm Appointment Request
+            </button>
+          </form>
+
+          <!-- Confirmation Box -->
+          <div class="confirmation-box" id="confirmation-box" role="alert" aria-live="polite">
+            <div class="conf-icon">🎉</div>
+            <h3>Appointment Request Received!</h3>
+            <p>Thank you for choosing The Family Dental Care. Here's a summary of your request:</p>
+
+            <div class="conf-details">
+              <div class="conf-detail-row">
+                <i class="fa fa-user"></i>
+                <strong>Name</strong>
+                <span id="conf-name">–</span>
+              </div>
+              <div class="conf-detail-row">
+                <i class="fa fa-calendar"></i>
+                <strong>Date</strong>
+                <span id="conf-date">–</span>
+              </div>
+              <div class="conf-detail-row">
+                <i class="fa fa-clock"></i>
+                <strong>Time</strong>
+                <span id="conf-time">–</span>
+              </div>
+              <div class="conf-detail-row">
+                <i class="fa fa-tooth"></i>
+                <strong>Service</strong>
+                <span id="conf-service">–</span>
+              </div>
+            </div>
+
+            <p style="font-size:0.9rem;margin-bottom:20px;">
+              <strong style="color:var(--primary);">Our team will call or WhatsApp you within 2 hours to confirm your slot.</strong>
+            </p>
+
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+              <a href="https://wa.me/919319938893" class="btn btn-primary" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+              </a>
+              <a href="index.html" class="btn btn-outline">
+                <i class="fa fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── WHY BOOK WITH US ──────────────────────────────────── -->
+<section class="section-pad" style="background:var(--white);" aria-label="Why book with us">
+  <div class="container">
+    <div class="section-header text-center" data-reveal>
+      <span class="tag">Easy & Hassle-Free</span>
+      <h2>Why Book With Us?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-reveal>
+        <div class="why-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+        <h3>Quick Confirmation</h3>
+        <p>We confirm your appointment within 2 hours via call or WhatsApp — no waiting, no confusion.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="80">
+        <div class="why-icon"><i class="fa fa-moon" aria-hidden="true"></i></div>
+        <h3>Evening Slots Available</h3>
+        <p>Open until 8:30 PM, 7 days a week. We work around your schedule, not the other way around.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="160">
+        <div class="why-icon"><i class="fa fa-ban" aria-hidden="true"></i></div>
+        <h3>Free Rescheduling</h3>
+        <p>Life happens. Reschedule your appointment for free — just let us know 4 hours before your slot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">
+          <div class="logo-icon">🦷</div>
+          <div>The Family Dental Care<span>Your Smile, Our Priority</span></div>
+        </div>
+        <p>Providing compassionate, high-quality dental care to families in Gurgaon. Your smile is our greatest reward.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/919319938893" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:thefamilydentalcaree@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="booking.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="booking.html">Teeth Cleaning</a></li>
+          <li><a href="booking.html">Cosmetic Dentistry</a></li>
+          <li><a href="booking.html">Smile Correction</a></li>
+          <li><a href="booking.html">Dental Implants</a></li>
+          <li><a href="booking.html">Paediatric Dentistry</a></li>
+          <li><a href="booking.html">Root Canal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <div class="footer-contact-item">
+          <i class="fa fa-map-marker-alt"></i>
+          <span>W-2/1, Basement Floor, W Block, Sector 24 DLF Phase 3, Gurgaon, Haryana 122022<br><small>Near Sai Baba Mandir</small></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-phone"></i>
+          <a href="tel:+919319938893">+91 93199 38893</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:thefamilydentalcaree@gmail.com">thefamilydentalcaree@gmail.com</a>
+        </div>
+        <div class="timing-badge">
+          <i class="fa fa-clock"></i> Mon–Sun: 10:00 AM – 8:30 PM
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 The Family Dental Care. All rights reserved. | Designed with ❤️ for your smile.</p>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <a href="https://wa.me/919319938893" class="float-btn float-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Service chip selection
+  document.querySelectorAll('.service-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.service-chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      document.getElementById('selected-service').value = chip.dataset.service;
+    });
+  });
+
+  // Override booking form submit to also capture service
+  const origSubmit = document.getElementById('booking-form');
+  if (origSubmit) {
+    origSubmit.addEventListener('submit', () => {
+      const confService = document.getElementById('conf-service');
+      const selService = document.getElementById('selected-service');
+      if (confService && selService) confService.textContent = selService.value || 'General Consultation';
+    }, true); // capture phase — runs before main.js handler
+  }
+
+  // Form validation
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    const required = ['b-fname', 'b-lname', 'b-email', 'b-phone', 'b-date'];
+    let valid = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#e53e3e';
+        el.focus();
+        valid = false;
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+    if (!valid) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      // Show error message
+      let err = document.getElementById('form-error');
+      if (!err) {
+        err = document.createElement('p');
+        err.id = 'form-error';
+        err.style.cssText = 'color:#e53e3e;font-size:0.85rem;margin-bottom:12px;text-align:center;';
+        err.textContent = '⚠️ Please fill in all required fields.';
+        document.getElementById('book-submit-btn').before(err);
+      }
+    }
+  }, false);
+</script>
+</body>
+</html>

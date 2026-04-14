@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How it works at The Family Dental Care – Follow our simple 6-step patient journey from consultation to ongoing maintenance. Gurgaon dental clinic." />
+  <title>How It Works | The Family Dental Care</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* How It Works extras */
+    .journey-section { background: var(--bg-light); }
+
+    .journey-intro {
+      max-width: 680px; margin: 0 auto 64px; text-align: center;
+    }
+
+    /* Timeline connector */
+    .steps-full-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 40px 32px;
+      position: relative;
+    }
+
+    .step-card-full {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 40px 32px; border: 1.5px solid var(--border);
+      position: relative; transition: var(--transition); text-align: left;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .step-card-full:hover {
+      border-color: var(--primary); transform: translateY(-6px); box-shadow: var(--shadow-md);
+    }
+    .step-card-full:hover .step-icon-lg { background: var(--primary); color: var(--white); }
+
+    .step-num-badge {
+      position: absolute; top: -16px; left: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white); padding: 4px 16px; border-radius: 50px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+      box-shadow: 0 4px 14px rgba(42,157,143,0.35);
+    }
+    .step-icon-lg {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--primary-light); color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin-bottom: 20px; transition: var(--transition);
+    }
+    .step-card-full h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .step-card-full p { font-size: 0.9rem; line-height: 1.7; flex-grow: 1; }
+    .step-details { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .step-detail-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.83rem; color: var(--text-mid);
+    }
+    .step-detail-item i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+
+    /* What to Expect section */
+    .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .expect-list { display: flex; flex-direction: column; gap: 20px; }
+    .expect-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 20px; background: var(--white);
+      border-radius: var(--radius); border: 1.5px solid var(--border);
+      transition: var(--transition);
+    }
+    .expect-item:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+    .expect-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white); display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem;
+    }
+    .expect-item h4 { margin-bottom: 4px; font-size: 0.95rem; }
+    .expect-item p { font-size: 0.83rem; }
+
+    /* FAQ section */
+    .faq-grid { display: flex; flex-direction: column; gap: 16px; max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white); border-radius: var(--radius); border: 1.5px solid var(--border);
+      overflow: hidden; transition: var(--transition);
+    }
+    .faq-item.open { border-color: var(--primary); }
+    .faq-question {
+      width: 100%; text-align: left; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-weight: 600; font-size: 0.95rem; color: var(--text-dark);
+      background: none; border: none; cursor: pointer; gap: 16px;
+    }
+    .faq-question i { color: var(--primary); flex-shrink: 0; transition: var(--transition); }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 20px; }
+    .faq-answer p { font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .steps-full-grid { grid-template-columns: repeat(2,1fr); }
+      .expect-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .steps-full-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="The Family Dental Care Home">
+        <div class="logo-icon" aria-hidden="true">🦷</div>
+        <div>The Family Dental Care<span>Gurgaon, Haryana</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ─── PAGE HERO ────────────────────────────────────────── -->
+<section class="page-hero" aria-label="How It Works hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>How It Works</span>
+    </nav>
+    <span class="tag" style="background:rgba(42,157,143,0.2);color:#7eebdc;">Your Journey to a Better Smile</span>
+    <h1>How It Works</h1>
+    <p>A clear, transparent, and comfortable patient journey — designed around your needs from the first call to lifelong maintenance.</p>
+  </div>
+</section>
+
+<!-- ─── 6 STEP JOURNEY ────────────────────────────────────── -->
+<section class="section-pad journey-section" aria-label="6-step patient journey">
+  <div class="container">
+    <div class="journey-intro" data-reveal>
+      <span class="tag">The 6-Step Journey</span>
+      <h2>From First Visit to Lasting Smile</h2>
+      <div class="divider"></div>
+      <p>We've designed a seamless, patient-first journey that takes you from your very first consultation all the way through to long-term smile maintenance — with expert guidance every step of the way.</p>
+    </div>
+
+    <div class="steps-full-grid">
+
+      <!-- Step 1 -->
+      <article class="step-card-full" data-reveal>
+        <div class="step-num-badge">Step 01</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-comments"></i>
+        </div>
+        <h3>Initial Consultation</h3>
+        <p>Your journey begins with a comprehensive, no-pressure consultation. We listen to your concerns, understand your dental history, and get to know you as a person — not just a patient.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Complete oral health examination</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Digital X-rays and imaging (if required)</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Review of dental and medical history</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Open discussion of goals and concerns</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step-card-full" data-reveal data-delay="80">
+        <div class="step-num-badge">Step 02</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-clipboard-list"></i>
+        </div>
+        <h3>Personalised Treatment Plan</h3>
+        <p>Based on your consultation, we craft a fully customised treatment plan. Every detail — from timelines to costs — is clearly explained so you can make confident, informed decisions.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Tailored plan for your unique smile</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Clear explanation of all procedures</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Transparent, upfront cost breakdown</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Timeline planning to fit your schedule</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 3 -->
+      <article class="step-card-full" data-reveal data-delay="160">
+        <div class="step-num-badge">Step 03</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-tooth"></i>
+        </div>
+        <h3>The Procedure</h3>
+        <p>With your comfort as our top priority, our experienced dentists carry out your treatment using the latest technology. Most procedures are quicker, gentler, and less invasive than you might expect.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Pain-minimizing anaesthesia techniques</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Modern, high-precision dental instruments</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Continuous communication throughout</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Strict sterilization and hygiene protocols</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 4 -->
+      <article class="step-card-full" data-reveal data-delay="240">
+        <div class="step-num-badge">Step 04</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-heart-pulse"></i>
+        </div>
+        <h3>Post-Procedure Aftercare</h3>
+        <p>After your treatment, we provide clear, personalised aftercare instructions to ensure a smooth, comfortable recovery and the best possible results from your procedure.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Written aftercare instructions provided</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Dietary and activity guidance</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Prescription & medication advice</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>24/7 emergency contact support</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 5 -->
+      <article class="step-card-full" data-reveal data-delay="320">
+        <div class="step-num-badge">Step 05</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-stethoscope"></i>
+        </div>
+        <h3>Follow-Up Review</h3>
+        <p>We schedule a follow-up appointment to assess healing, check results, and address any concerns. Your recovery and satisfaction are just as important as the treatment itself.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Healing and outcome evaluation</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Adjustments and fine-tuning if needed</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Progress photographs for comparison</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Next steps planning and advice</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 6 -->
+      <article class="step-card-full" data-reveal data-delay="400">
+        <div class="step-num-badge">Step 06</div>
+        <div class="step-icon-lg" aria-hidden="true">
+          <i class="fa fa-shield-heart"></i>
+        </div>
+        <h3>Ongoing Maintenance</h3>
+        <p>Great dental health is a lifelong commitment. We support you with scheduled check-ups, preventive care, and education to keep your smile radiant for years to come.</p>
+        <div class="step-details">
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Regular 6-month check-up reminders</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Professional cleaning and scaling</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Personalised oral hygiene coaching</span>
+          </div>
+          <div class="step-detail-item">
+            <i class="fa fa-check-circle"></i>
+            <span>Priority booking for existing patients</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT TO EXPECT ─────────────────────────────────────── -->
+<section class="section-pad" aria-label="What to expect on your first visit">
+  <div class="container">
+    <div class="expect-grid">
+
+      <div data-reveal>
+        <span class="tag">First Visit</span>
+        <h2>What to Expect on Your First Visit</h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:28px;">We want you to feel completely at ease. Here's a quick guide to what your first appointment will look like, so there are no surprises:</p>
+        <a href="booking.html" class="btn btn-primary">
+          <i class="fa fa-calendar-check"></i> Book Your First Visit
+        </a>
+      </div>
+
+      <div class="expect-list" data-reveal data-delay="120">
+        <div class="expect-item">
+          <div class="expect-num">1</div>
+          <div>
+            <h4>Warm Welcome & Registration</h4>
+            <p>Our friendly front desk team will greet you and help with a quick, simple registration form.</p>
+          </div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">2</div>
+          <div>
+            <h4>Meet Your Dentist</h4>
+            <p>You'll meet Dr. Mishra or Dr. Pandey in a calm, private consultation room — no rush, no pressure.</p>
+          </div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">3</div>
+          <div>
+            <h4>Thorough Examination</h4>
+            <p>A complete assessment of your teeth, gums, and jaw, with digital X-rays if recommended.</p>
+          </div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">4</div>
+          <div>
+            <h4>Clear Plan & Next Steps</h4>
+            <p>You'll leave with a clear understanding of your oral health and a recommended treatment plan.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────── -->
+<section class="section-pad" style="background:var(--bg-light);" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="section-header text-center" data-reveal>
+      <span class="tag">FAQs</span>
+      <h2>Frequently Asked Questions</h2>
+      <div class="divider"></div>
+      <p>Have questions? We've answered the most common ones below.</p>
+    </div>
+
+    <div class="faq-grid" role="list">
+
+      <div class="faq-item" role="listitem" data-reveal>
+        <button class="faq-question" aria-expanded="false">
+          How do I book an appointment?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>You can book online via our <a href="booking.html" style="color:var(--primary);">Booking page</a>, call us at +91 9319938893, or WhatsApp us directly. We're available every day from 10:00 AM to 8:30 PM.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem" data-reveal data-delay="60">
+        <button class="faq-question" aria-expanded="false">
+          Is the first consultation free?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Please contact our clinic directly for information on consultation charges. We strive to make our services affordable and offer transparent pricing with no hidden costs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem" data-reveal data-delay="120">
+        <button class="faq-question" aria-expanded="false">
+          Are your treatments painful?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Patient comfort is our top priority. We use modern anaesthesia techniques and gentle procedures to minimise discomfort. Most patients are pleasantly surprised by how painless their treatment is.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem" data-reveal data-delay="180">
+        <button class="faq-question" aria-expanded="false">
+          Do you treat children?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! We are a family dental clinic and welcome patients of all ages. Our team is trained in paediatric dentistry and knows how to make children feel safe and at ease.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem" data-reveal data-delay="240">
+        <button class="faq-question" aria-expanded="false">
+          What are your clinic timings?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We're open every day from <strong>10:00 AM to 8:30 PM</strong>, including weekends. Evening slots are available for those with busy day schedules.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem" data-reveal data-delay="300">
+        <button class="faq-question" aria-expanded="false">
+          How often should I visit the dentist?
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We recommend a routine check-up and professional cleaning every 6 months for most patients. However, your dentist may suggest a more frequent schedule based on your individual oral health needs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ───────────────────────────────────────────────── -->
+<section id="cta-section" aria-label="Book appointment CTA">
+  <div class="container">
+    <span class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">Start Your Journey</span>
+    <h2>Ready to Begin Your Smile Journey?</h2>
+    <p>Book your first consultation today and experience care that truly puts you first.</p>
+    <div class="cta-btns">
+      <a href="booking.html" class="btn btn-white">
+        <i class="fa fa-calendar-check"></i> Book Appointment
+      </a>
+      <a href="contact.html" class="btn" style="border:2px solid rgba(255,255,255,0.5);color:#fff;border-radius:50px;padding:14px 32px;font-weight:600;font-size:0.95rem;display:inline-flex;align-items:center;gap:8px;">
+        <i class="fa fa-phone"></i> Call Us
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">
+          <div class="logo-icon">🦷</div>
+          <div>The Family Dental Care<span>Your Smile, Our Priority</span></div>
+        </div>
+        <p>Providing compassionate, high-quality dental care to families in Gurgaon. Your smile is our greatest reward.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/919319938893" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:thefamilydentalcaree@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="booking.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="booking.html">Teeth Cleaning</a></li>
+          <li><a href="booking.html">Cosmetic Dentistry</a></li>
+          <li><a href="booking.html">Smile Correction</a></li>
+          <li><a href="booking.html">Dental Implants</a></li>
+          <li><a href="booking.html">Paediatric Dentistry</a></li>
+          <li><a href="booking.html">Root Canal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <div class="footer-contact-item">
+          <i class="fa fa-map-marker-alt"></i>
+          <span>W-2/1, Basement Floor, W Block, Sector 24 DLF Phase 3, Gurgaon, Haryana 122022<br><small>Near Sai Baba Mandir</small></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-phone"></i>
+          <a href="tel:+919319938893">+91 93199 38893</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:thefamilydentalcaree@gmail.com">thefamilydentalcaree@gmail.com</a>
+        </div>
+        <div class="timing-badge">
+          <i class="fa fa-clock"></i> Mon–Sun: 10:00 AM – 8:30 PM
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 The Family Dental Care. All rights reserved. | Designed with ❤️ for your smile.</p>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <a href="https://wa.me/919319938893" class="float-btn float-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <a href="booking.html" class="float-btn float-book"><i class="fa fa-calendar-plus"></i> Book Now</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+</script>
+</body>
+</html>
