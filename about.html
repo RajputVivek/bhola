@@ -1,409 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About The Family Dental Care – Learn about our story, philosophy, and meet Dr. Rishikesh Mishra and Dr. Khushboo Pandey. Family dental clinic in Gurgaon." />
+  <meta name="description"
+    content="About The Family Dental Care - Learn about our story, philosophy, and meet Dr. Rishikesh Mishra and Dr. Khushboo Pandey. Family dental clinic in Gurgaon." />
   <title>About Us | The Family Dental Care</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* About page extras */
     .philosophy-section {
       background: linear-gradient(135deg, #f0fbf9, #eaf6ff);
-      border-radius: var(--radius-lg); padding: 56px 52px; margin: 60px 0;
+      border-radius: var(--radius-lg);
+      padding: 56px 52px;
+      margin: 60px 0;
       border: 1.5px solid var(--border);
     }
-    .philosophy-section blockquote {
-      font-family: var(--font-heading); font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-      color: var(--text-dark); line-height: 1.6; font-style: italic;
-      text-align: center; max-width: 800px; margin: 0 auto 28px;
-    }
-    .philosophy-section blockquote::before { content: '\201C'; font-size: 4rem; color: var(--primary); line-height: 0; vertical-align: -0.55em; margin-right: 4px; }
-    .philosophy-section blockquote::after { content: '\201D'; font-size: 4rem; color: var(--primary); line-height: 0; vertical-align: -0.55em; margin-left: 4px; }
-    .philosophy-content { text-align: center; }
-    .philosophy-content p { font-size: 0.95rem; max-width: 700px; margin: 0 auto 14px; }
 
-    .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 48px; }
-    .value-item { text-align: center; padding: 28px 20px; background: var(--white); border-radius: var(--radius); border: 1.5px solid var(--border); transition: var(--transition); }
-    .value-item:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
-    .value-icon { font-size: 2rem; margin-bottom: 12px; }
-    .value-item h4 { font-size: 0.9rem; color: var(--text-dark); margin-bottom: 6px; }
-    .value-item p { font-size: 0.8rem; }
+    .philosophy-section blockquote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-style: italic;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 28px;
+    }
+
+    .philosophy-section blockquote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: var(--primary);
+      line-height: 0;
+      vertical-align: -0.55em;
+      margin-right: 4px;
+    }
+
+    .philosophy-section blockquote::after {
+      content: '\201D';
+      font-size: 4rem;
+      color: var(--primary);
+      line-height: 0;
+      vertical-align: -0.55em;
+      margin-left: 4px;
+    }
+
+    .philosophy-content {
+      text-align: center;
+    }
+
+    .philosophy-content p {
+      font-size: 0.95rem;
+      max-width: 700px;
+      margin: 0 auto 14px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 28px 20px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .value-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .value-item h4 {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .value-item p {
+      font-size: 0.8rem;
+    }
 
     .placeholder-note {
-      background: #fff8e1; border: 1.5px dashed #f4c842;
-      border-radius: var(--radius-sm); padding: 14px 18px;
-      font-size: 0.83rem; color: #7a6010; margin-bottom: 18px;
+      background: #fff8e1;
+      border: 1.5px dashed #f4c842;
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 0.83rem;
+      color: #7a6010;
+      margin-bottom: 18px;
     }
-    .placeholder-note i { margin-right: 6px; }
+
+    .placeholder-note i {
+      margin-right: 6px;
+    }
 
     @media (max-width: 768px) {
-      .philosophy-section { padding: 36px 24px; }
-      .values-grid { grid-template-columns: repeat(2,1fr); }
+      .philosophy-section {
+        padding: 36px 24px;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 500px) {
-      .values-grid { grid-template-columns: 1fr; }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ─── NAVBAR ─────────────────────────────────────────────── -->
-<header>
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="The Family Dental Care Home">
-        <div class="logo-icon" aria-hidden="true">🦷</div>
-        <div>The Family Dental Care<span>Gurgaon, Haryana</span></div>
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-</header>
-
-<main>
-
-<!-- ─── PAGE HERO ─────────────────────────────────────────── -->
-<section class="page-hero" aria-label="About Us hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a>
-      <span aria-hidden="true">›</span>
-      <span>About Us</span>
-    </nav>
-    <span class="tag" style="background:rgba(42,157,143,0.2);color:#7eebdc;">Our Story</span>
-    <h1>About The Family<br>Dental Care</h1>
-    <p>A practice built on trust, compassion, and a deep commitment to transforming smiles and lives.</p>
-  </div>
-</section>
-
-<!-- ─── MAIN ABOUT CONTENT ────────────────────────────────── -->
-<section class="section-pad" aria-label="Our story">
-  <div class="container">
-    <div class="about-grid">
-
-      <div class="about-img-col" data-reveal>
-        <div class="about-img-main">
-          <img
-            src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=85"
-            alt="Welcoming dental clinic reception"
-            width="800" height="500"
-            loading="lazy"
-          />
-        </div>
-        <div class="about-img-float">
-          <img
-            src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80"
-            alt="Dental consultation"
-            loading="lazy"
-          />
-        </div>
-      </div>
-
-      <div class="about-text" data-reveal data-delay="150">
-        <span class="tag">Who We Are</span>
-        <h2>A Healthier Smile Is a Happier Life</h2>
-        <div class="divider"></div>
-
-        <p>At The Family Dental Care, we believe that a healthy smile is a reflection of a happy life. Our clinic was founded with a singular vision — to make premium dental care accessible, comfortable, and genuinely caring for every member of your family.</p>
-
-        <div class="placeholder-note">
-          <i class="fa fa-pencil"></i><strong>Note for clinic owner:</strong> Please provide the full "About Us" narrative/story to be added here. The section below contains placeholder text that you can replace with your clinic's own journey and background.
-        </div>
-
-        <p>From our humble beginnings to becoming one of Gurgaon's trusted dental destinations, we have always put our patients first. Our approach blends clinical excellence with genuine warmth — because we know that visiting the dentist can feel daunting, and we're here to change that experience entirely.</p>
-
-        <p>Every smile we treat is unique, and every patient deserves personalised attention. That's the promise we make — and keep — every single day.</p>
-
-        <div class="about-checks">
-          <div class="about-check">
-            <i class="fa fa-check-circle"></i>
-            <span>Comprehensive dental care for the entire family</span>
-          </div>
-          <div class="about-check">
-            <i class="fa fa-check-circle"></i>
-            <span>Trained, qualified, and compassionate dental team</span>
-          </div>
-          <div class="about-check">
-            <i class="fa fa-check-circle"></i>
-            <span>Clinically proven, latest dental equipment</span>
-          </div>
-          <div class="about-check">
-            <i class="fa fa-check-circle"></i>
-            <span>Strict hygiene and sterilization protocols</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Philosophy Block -->
-    <div class="philosophy-section" data-reveal>
-      <div class="philosophy-content">
-        <span class="tag">Our Philosophy</span>
-        <h2 style="margin-bottom:24px;">What We Believe In</h2>
-        <blockquote>
-          A smile is the most beautiful curve on the human body — and it's our privilege to help you shape it.
-        </blockquote>
-
-        <div class="placeholder-note">
-          We believe great dentistry starts with genuinely caring about people, not just teeth. Every patient who walks in is treated with warmth, respect, and the kind of attention we’d give our own family.
-
-We keep things simple and transparent — no confusing jargon, no unnecessary treatments. Just honest advice, clear explanations, and guidance you can trust. We take the time to understand your concerns and make sure you feel comfortable at every step.
-
-Our focus is on prevention and long-term care, not quick fixes. With modern techniques and a strong clinical foundation, we aim to give you results that are not only effective but lasting.
-
-At the end of the day, it’s about helping you feel confident in your smile — and confident in the care you receive.
-        </div>
-
-        <p>We believe dental care is not just about fixing teeth — it's about building long-lasting relationships built on trust, transparency, and genuine care. We treat every patient the way we'd treat our own family.</p>
-        <p>Our philosophy centres on prevention, education, and empowerment — helping you understand your oral health so you can make informed decisions with confidence.</p>
-      </div>
-
-      <!-- Core Values -->
-      <div class="values-grid" data-reveal>
-        <div class="value-item">
-          <div class="value-icon">🤝</div>
-          <h4>Trust</h4>
-          <p>Transparent communication and honest recommendations, always.</p>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">❤️</div>
-          <h4>Compassion</h4>
-          <p>Patient comfort and emotional well-being come first.</p>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">🔬</div>
-          <h4>Excellence</h4>
-          <p>Clinically superior outcomes using the latest techniques.</p>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">🌱</div>
-          <h4>Education</h4>
-          <p>Empowering patients with knowledge to maintain oral health.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── MEET THE DENTISTS ──────────────────────────────────── -->
-<section class="section-pad" style="background:var(--bg-light);" aria-label="Meet the dentists">
-  <div class="container">
-    <div class="section-header text-center" data-reveal>
-      <span class="tag">Our Team</span>
-      <h2>Meet Your Dentists</h2>
-      <div class="divider"></div>
-      <p>Passionate, experienced, and dedicated to giving you the very best dental care possible.</p>
-    </div>
-
-    <div class="doctors-grid">
-
-      <!-- Dr. Rishikesh Mishra -->
-      <article class="doctor-card" data-reveal>
-        <div class="doctor-img">
-          <div class="doc-placeholder" aria-hidden="true">👨‍⚕️</div>
-        </div>
-        <div class="doctor-info">
-          <div class="placeholder-note">
-            <i class="fa fa-camera"></i> <strong>Note:</strong> Please provide a professional photo of Dr. Rishikesh Mishra.
-          </div>
-          <h3>Dr. Rishikesh Mishra</h3>
-          <p class="doc-title">Principal Dentist & Founder</p>
-
-          <div class="placeholder-note">
-            <i class="fa fa-pencil"></i> <strong>Note for clinic owner:</strong> Please provide Dr. Rishikesh Mishra's full profile — qualifications, specialisation, experience, and any achievements.
-          </div>
-
-          <p>Dr. Rishikesh Mishra is a highly skilled and compassionate dental professional with years of experience serving patients in Gurgaon and the NCR region. Known for his gentle approach and commitment to patient comfort, he has built a reputation for outstanding clinical outcomes.</p>
-          <p>He specialises in restorative dentistry, dental implants, and complex oral treatments, and is dedicated to staying at the forefront of modern dental advancements.</p>
-          <div class="doc-quals">
-            <span class="doc-qual-tag">BDS</span>
-            <span class="doc-qual-tag">MDS (Placeholder)</span>
-            <span class="doc-qual-tag">Implantology</span>
-            <span class="doc-qual-tag">10+ Yrs Experience</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Dr. Khushboo Pandey -->
-      <article class="doctor-card" data-reveal data-delay="150">
-        <div class="doctor-img">
-          <div class="doc-placeholder" aria-hidden="true">👩‍⚕️</div>
-        </div>
-        <div class="doctor-info">
-          <div class="placeholder-note">
-            <i class="fa fa-camera"></i> <strong>Note:</strong> Please provide a professional photo of Dr. Khushboo Pandey.
-          </div>
-          <h3>Dr. Khushboo Pandey</h3>
-          <p class="doc-title">Dental Surgeon & Cosmetic Dentistry Specialist</p>
-
-          <div class="placeholder-note">
-            <i class="fa fa-pencil"></i> <strong>Note for clinic owner:</strong> Please provide Dr. Khushboo Pandey's full profile — qualifications, specialisation, experience, and any achievements.
-          </div>
-
-          <p>Dr. Khushboo Pandey brings warmth, precision, and artistic sensibility to every smile she works on. Her expertise in cosmetic dentistry, smile corrections, and orthodontics has helped hundreds of patients rediscover their confidence.</p>
-          <p>She is known for her exceptional patient communication skills and ability to create personalised treatment plans that align with each patient's goals and comfort level.</p>
-          <div class="doc-quals">
-            <span class="doc-qual-tag">BDS</span>
-            <span class="doc-qual-tag">Cosmetic Dentistry</span>
-            <span class="doc-qual-tag">Orthodontics</span>
-            <span class="doc-qual-tag">Smile Design</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHY CHOOSE US ──────────────────────────────────────── -->
-<section class="section-pad" aria-label="Why choose us">
-  <div class="container">
-    <div class="section-header text-center" data-reveal>
-      <span class="tag">Why Us</span>
-      <h2>Why Choose The Family Dental Care?</h2>
-      <div class="divider"></div>
-      <p>We go beyond dental treatment — we deliver an experience that makes you feel safe, heard, and cared for.</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card" data-reveal>
-        <div class="why-icon"><i class="fa fa-user-shield" aria-hidden="true"></i></div>
-        <h3>Patient Safety First</h3>
-        <p>Hospital-grade sterilization, single-use instruments, and strict infection control protocols ensure your safety at all times.</p>
-      </div>
-      <div class="why-card" data-reveal data-delay="80">
-        <div class="why-icon"><i class="fa fa-microscope" aria-hidden="true"></i></div>
-        <h3>Advanced Technology</h3>
-        <p>From digital X-rays to modern dental chairs, we use the latest equipment for precise, comfortable, and faster treatment.</p>
-      </div>
-      <div class="why-card" data-reveal data-delay="160">
-        <div class="why-icon"><i class="fa fa-clock" aria-hidden="true"></i></div>
-        <h3>Flexible Timings</h3>
-        <p>Open every day from 10:00 AM to 8:30 PM, with evening slots available to accommodate your busy schedule.</p>
-      </div>
-      <div class="why-card" data-reveal data-delay="240">
-        <div class="why-icon"><i class="fa fa-rupee-sign" aria-hidden="true"></i></div>
-        <h3>Transparent Pricing</h3>
-        <p>No hidden costs or surprise bills. We believe in upfront, honest pricing with flexible payment options.</p>
-      </div>
-      <div class="why-card" data-reveal data-delay="320">
-        <div class="why-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-        <h3>Family-Friendly Space</h3>
-        <p>Our clinic is designed to be welcoming for patients of all ages — from toddlers to seniors — in a warm, anxiety-free environment.</p>
-      </div>
-      <div class="why-card" data-reveal data-delay="400">
-        <div class="why-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
-        <h3>Proven Track Record</h3>
-        <p>2000+ happy patients, 4.9-star ratings, and a trusted reputation built over years of consistent, quality care in Gurgaon.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CTA ─────────────────────────────────────────────────── -->
-<section id="cta-section" aria-label="Book appointment CTA">
-  <div class="container">
-    <span class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">Ready to Meet Us?</span>
-    <h2>Schedule Your Visit Today</h2>
-    <p>Experience the difference at The Family Dental Care. We're just a call or click away.</p>
-    <div class="cta-btns">
-      <a href="booking.html" class="btn btn-white">
-        <i class="fa fa-calendar-check"></i> Book Appointment
-      </a>
-      <a href="contact.html" class="btn" style="border:2px solid rgba(255,255,255,0.5);color:#fff;border-radius:50px;padding:14px 32px;font-weight:600;font-size:0.95rem;display:inline-flex;align-items:center;gap:8px;">
-        <i class="fa fa-map-marker-alt"></i> Get Directions
-      </a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ─── FOOTER ─────────────────────────────────────────────── -->
-<footer role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:14px;">
-          <div class="logo-icon">🦷</div>
-          <div>The Family Dental Care<span>Your Smile, Our Priority</span></div>
-        </div>
-        <p>Providing compassionate, high-quality dental care to families in Gurgaon. Your smile is our greatest reward.</p>
-        <div class="social-links" aria-label="Social media links">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/919319938893" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:thefamilydentalcaree@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
+  <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="The Family Dental Care Home">
+          <div class="logo-icon" aria-hidden="true">🦷</div>
+          <div>The Family Dental Care<span>Gurgaon, Haryana</span></div>
+        </a>
+        <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="booking.html">Book Appointment</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="booking.html">Teeth Cleaning</a></li>
-          <li><a href="booking.html">Cosmetic Dentistry</a></li>
-          <li><a href="booking.html">Smile Correction</a></li>
-          <li><a href="booking.html">Dental Implants</a></li>
-          <li><a href="booking.html">Paediatric Dentistry</a></li>
-          <li><a href="booking.html">Root Canal</a></li>
-        </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── PAGE HERO ─────────────────────────────────────────── -->
+    <section class="page-hero" aria-label="About Us hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <span>About Us</span>
+        </nav>
+        <span class="tag" style="background:rgba(42,157,143,0.2);color:#7eebdc;">Our Story</span>
+        <h1>About The Family<br>Dental Care</h1>
+        <p>A practice built on trust, compassion, and a deep commitment to transforming smiles and lives.</p>
       </div>
-      <div class="footer-col">
-        <h4>Get in Touch</h4>
-        <div class="footer-contact-item">
-          <i class="fa fa-map-marker-alt"></i>
-          <span>W-2/1, Basement Floor, W Block, Sector 24 DLF Phase 3, Gurgaon, Haryana 122022<br><small>Near Sai Baba Mandir</small></span>
+    </section>
+
+    <!-- ─── MAIN ABOUT CONTENT ────────────────────────────────── -->
+    <section class="section-pad" aria-label="Our story">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-img-col" data-reveal>
+            <div class="about-img-main">
+              <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=85"
+                alt="Welcoming dental clinic reception" width="800" height="500" loading="lazy" />
+            </div>
+            <div class="about-img-float">
+              <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80"
+                alt="Dental consultation" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="about-text" data-reveal data-delay="150">
+            <span class="tag">Who We Are</span>
+            <h2>A Healthier Smile Is a Happier Life</h2>
+            <div class="divider"></div>
+
+            <p>At The Family Dental Care, we believe that a healthy smile is a reflection of a happy life. Our clinic
+              was founded with a singular vision — to make premium dental care accessible, comfortable, and genuinely
+              caring for every member of your family.</p>
+
+            <p>From our humble beginnings to becoming one of Gurgaon's trusted dental destinations, we have always put
+              our patients first. Our approach blends clinical excellence with genuine warmth — because we know that
+              visiting the dentist can feel daunting, and we're here to change that experience entirely.</p>
+
+            <p>Every smile we treat is unique, and every patient deserves personalised attention. That's the promise we
+              make — and keep — every single day.</p>
+
+            <div class="about-checks">
+              <div class="about-check">
+                <i class="fa fa-check-circle"></i>
+                <span>Comprehensive dental care for the entire family</span>
+              </div>
+              <div class="about-check">
+                <i class="fa fa-check-circle"></i>
+                <span>Trained, qualified, and compassionate dental team</span>
+              </div>
+              <div class="about-check">
+                <i class="fa fa-check-circle"></i>
+                <span>Clinically proven, latest dental equipment</span>
+              </div>
+              <div class="about-check">
+                <i class="fa fa-check-circle"></i>
+                <span>Strict hygiene and sterilization protocols</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="footer-contact-item">
-          <i class="fa fa-phone"></i>
-          <a href="tel:+919319938893">+91 93199 38893</a>
+
+        <!-- Philosophy Block -->
+        <div class="philosophy-section" data-reveal>
+          <div class="philosophy-content">
+            <span class="tag">Our Philosophy</span>
+            <h2 style="margin-bottom:24px;">What We Believe In</h2>
+            <blockquote>
+              A smile is the most beautiful curve on the human body — and it's our privilege to help you shape it.
+            </blockquote>
+
+            <p>We believe dental care is not just about fixing teeth — it's about building long-lasting relationships
+              built on trust, transparency, and genuine care. We treat every patient the way we'd treat our own family.
+            </p>
+            <p>Our philosophy centres on prevention, education, and empowerment — helping you understand your oral
+              health so you can make informed decisions with confidence.</p>
+          </div>
+
+          <!-- Core Values -->
+          <div class="values-grid" data-reveal>
+            <div class="value-item">
+              <div class="value-icon">🤝</div>
+              <h4>Trust</h4>
+              <p>Transparent communication and honest recommendations, always.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">❤️</div>
+              <h4>Compassion</h4>
+              <p>Patient comfort and emotional well-being come first.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🔬</div>
+              <h4>Excellence</h4>
+              <p>Clinically superior outcomes using the latest techniques.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🌱</div>
+              <h4>Education</h4>
+              <p>Empowering patients with knowledge to maintain oral health.</p>
+            </div>
+          </div>
         </div>
-        <div class="footer-contact-item">
-          <i class="fa fa-envelope"></i>
-          <a href="mailto:thefamilydentalcaree@gmail.com">thefamilydentalcaree@gmail.com</a>
+
+      </div>
+    </section>
+
+    <!-- ─── MEET THE DENTISTS ──────────────────────────────────── -->
+    <section class="section-pad" style="background:var(--bg-light);" aria-label="Meet the dentists">
+      <div class="container">
+        <div class="section-header text-center" data-reveal>
+          <span class="tag">Our Team</span>
+          <h2>Meet Your Dentists</h2>
+          <div class="divider"></div>
+          <p>Passionate, experienced, and dedicated to giving you the very best dental care possible.</p>
         </div>
-        <div class="timing-badge">
-          <i class="fa fa-clock"></i> Mon–Sun: 10:00 AM – 8:30 PM
+
+        <div class="doctors-grid">
+
+          <!-- Dr. Rishikesh Mishra -->
+          <article class="doctor-card" data-reveal>
+            <div class="doctor-img">
+              <!-- <div class="doc-placeholder" aria-hidden="true">👨‍⚕️</div> -->
+              <img src="/images/mishra.jpg" alt="">
+            </div>
+            <div class="doctor-info">
+              <h3>Dr. Rishikesh Mishra</h3>
+              <p class="doc-title">Principal Dentist & Founder</p>
+              <p class="stars">BDS (PGIDS Rohtak), Fellowship in Trauma Management</p>
+              <p>Dr. Rishikesh Mishra is a dedicated and skilled dental surgeon committed to delivering high-quality,
+                patient-centered care. A graduate of PGIDS, Rohtak, he combines clinical expertise with a gentle and
+                ethical approach to dentistry.
+              </p>
+              <p>With additional training through a Fellowship in Trauma Management, Dr. Mishra is well-equipped to
+                handle dental emergencies and complex cases with confidence and precision.
+                His areas of focus include restorative dentistry, aesthetic treatments, and preventive oral care,
+                ensuring that patients not only receive treatment but also understand how to maintain long-term oral
+                health.</p>
+              <p>Dr. Mishra strongly believes in patient education and emphasizes the importance of early diagnosis,
+                regular dental check-ups, and personalized treatment planning. His goal is to create a comfortable
+                environment where patients feel informed, confident, and cared for.
+                At The Family Dental Care, he strives to provide modern, reliable, and compassionate dental services for
+                patients of all ages.</p>
+
+              <div class="doc-quals">
+                <span class="doc-qual-tag">BDS</span>
+                <span class="doc-qual-tag">Implantology</span>
+                <span class="doc-qual-tag">10+ Yrs Experience</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dr. Khushboo Pandey -->
+          <article class="doctor-card" data-reveal data-delay="150">
+            <div class="doctor-img">
+              <img src="/images/pandey.jpg" alt="">
+            </div>
+            <div class="doctor-info">
+              <h3>Dr. Khushboo Pandey</h3>
+              <p class="doc-title">Dental Surgeon & Cosmetic Dentistry Specialist</p>
+              <p class="stars">BDS</p>
+
+              <p>Dr. Khushboo Pandey is a compassionate dental surgeon dedicated to promoting preventive and
+                prophylactic oral care. She believes that maintaining oral health begins with awareness, early
+                diagnosis, and consistent care.</p>
+              <p>
+                With a strong focus on prevention, Dr. Pandey emphasizes the importance of regular dental check-ups,
+                professional cleanings, and patient education. She takes a personalized approach to guide patients on
+                proper oral hygiene practices, helping them prevent dental issues before they develop.
+              </p>
+              <p>Her gentle and patient-friendly nature ensures a comfortable experience for individuals of all ages.
+                She
+                is committed not only to treating dental concerns but also to empowering patients with the knowledge
+                needed for long-term oral health.</p>
+              <div class="doc-quals">
+                <span class="doc-qual-tag">BDS</span>
+                <span class="doc-qual-tag">Cosmetic Dentistry</span>
+                <span class="doc-qual-tag">Smile Design</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WHY CHOOSE US ──────────────────────────────────────── -->
+    <section class="section-pad" aria-label="Why choose us">
+      <div class="container">
+        <div class="section-header text-center" data-reveal>
+          <span class="tag">Why Us</span>
+          <h2>Why Choose The Family Dental Care?</h2>
+          <div class="divider"></div>
+          <p>We go beyond dental treatment — we deliver an experience that makes you feel safe, heard, and cared for.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card" data-reveal>
+            <div class="why-icon"><i class="fa fa-user-shield" aria-hidden="true"></i></div>
+            <h3>Patient Safety First</h3>
+            <p>Hospital-grade sterilization, single-use instruments, and strict infection control protocols ensure your
+              safety at all times.</p>
+          </div>
+          <div class="why-card" data-reveal data-delay="80">
+            <div class="why-icon"><i class="fa fa-microscope" aria-hidden="true"></i></div>
+            <h3>Advanced Technology</h3>
+            <p>From digital X-rays to modern dental chairs, we use the latest equipment for precise, comfortable, and
+              faster treatment.</p>
+          </div>
+          <div class="why-card" data-reveal data-delay="160">
+            <div class="why-icon"><i class="fa fa-clock" aria-hidden="true"></i></div>
+            <h3>Flexible Timings</h3>
+            <p>Open every day from 10:00 AM to 8:30 PM, with evening slots available to accommodate your busy schedule.
+            </p>
+          </div>
+          <div class="why-card" data-reveal data-delay="240">
+            <div class="why-icon"><i class="fa fa-rupee-sign" aria-hidden="true"></i></div>
+            <h3>Transparent Pricing</h3>
+            <p>No hidden costs or surprise bills. We believe in upfront, honest pricing with flexible payment options.
+            </p>
+          </div>
+          <div class="why-card" data-reveal data-delay="320">
+            <div class="why-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
+            <h3>Family-Friendly Space</h3>
+            <p>Our clinic is designed to be welcoming for patients of all ages — from toddlers to seniors — in a warm,
+              anxiety-free environment.</p>
+          </div>
+          <div class="why-card" data-reveal data-delay="400">
+            <div class="why-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <h3>Proven Track Record</h3>
+            <p>2000+ happy patients, 4.9-star ratings, and a trusted reputation built over years of consistent, quality
+              care in Gurgaon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ─────────────────────────────────────────────────── -->
+    <section id="cta-section" aria-label="Book appointment CTA">
+      <div class="container">
+        <span class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">Ready to Meet
+          Us?</span>
+        <h2>Schedule Your Visit Today</h2>
+        <p>Experience the difference at The Family Dental Care. We're just a call or click away.</p>
+        <div class="cta-btns">
+          <a href="booking.html" class="btn btn-white">
+            <i class="fa fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="contact.html" class="btn"
+            style="border:2px solid rgba(255,255,255,0.5);color:#fff;border-radius:50px;padding:14px 32px;font-weight:600;font-size:0.95rem;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fa fa-map-marker-alt"></i> Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:14px;">
+            <div class="logo-icon">🦷</div>
+            <div>The Family Dental Care<span>Your Smile, Our Priority</span></div>
+          </div>
+          <p>Providing compassionate, high-quality dental care to families in Gurgaon. Your smile is our greatest
+            reward.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919319938893" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:thefamilydentalcaree@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="booking.html">Teeth Cleaning</a></li>
+            <li><a href="booking.html">Cosmetic Dentistry</a></li>
+            <li><a href="booking.html">Smile Correction</a></li>
+            <li><a href="booking.html">Dental Implants</a></li>
+            <li><a href="booking.html">Paediatric Dentistry</a></li>
+            <li><a href="booking.html">Root Canal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <div class="footer-contact-item">
+            <i class="fa fa-map-marker-alt"></i>
+            <span>W-2/1, Basement Floor, W Block, Sector 24 DLF Phase 3, Gurgaon, Haryana 122022<br><small>Near Sai Baba
+                Mandir</small></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa fa-phone"></i>
+            <a href="tel:+919319938893">+91 93199 38893</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:thefamilydentalcaree@gmail.com">thefamilydentalcaree@gmail.com</a>
+          </div>
+          <div class="timing-badge">
+            <i class="fa fa-clock"></i> Mon–Sun: 10:00 AM – 8:30 PM
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 The Family Dental Care. All rights reserved. | Designed with ❤️ for your smile.</p>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <p>© 2026 The Family Dental Care. All rights reserved. | Designed with ❤️ for your smile by <a href="https://vvek.dev">vvek</a></p>
+    </div>
+  </footer>
 
-<div class="float-actions">
-  <a href="https://wa.me/919319938893" class="float-btn float-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-  <a href="booking.html" class="float-btn float-book"><i class="fa fa-calendar-plus"></i> Book Now</a>
-</div>
+  <div class="float-actions">
+    <a href="https://wa.me/919319938893" class="float-btn float-whatsapp" aria-label="WhatsApp" target="_blank"
+      rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    <a href="booking.html" class="float-btn float-book"><i class="fa fa-calendar-plus"></i> Book Now</a>
+  </div>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
