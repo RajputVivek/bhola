@@ -493,11 +493,15 @@ label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-
 }
 .doctor-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .doctor-img {
-  height: 280px; overflow: hidden;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--primary-light), var(--blue-mid));
   display: flex; align-items: center; justify-content: center; position: relative;
+  height: 320px;
+  max-height: 420px;
 }
-.doctor-img img { width: 100%; height: 100%; object-fit: cover; }
+.doctor-img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;
+}
 .doctor-img .doc-placeholder {
   font-size: 5rem; color: var(--primary); opacity: 0.5;
 }
@@ -646,6 +650,7 @@ label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-
   .booking-info-card { position: static; }
   .contact-layout { grid-template-columns: 1fr; }
   .doctors-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .doctor-img { height: 300px; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .highlights-grid { grid-template-columns: repeat(2, 1fr); }
@@ -667,4 +672,5 @@ label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-
   .about-img-float { display: none; }
   .exp-badge { left: 0; }
   .float-book { display: none; }
+  .doctor-img { height: 220px; }
 }
