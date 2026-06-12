@@ -153,14 +153,23 @@ if (contactForm) {
     btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
+    const fname = contactForm.querySelector('#c-fname').value;
+    const lname = contactForm.querySelector('#c-lname').value;
+    const email = contactForm.querySelector('#c-email').value;
+    const phone = contactForm.querySelector('#c-phone').value;
+    const subject = contactForm.querySelector('#c-subject').value || 'General Inquiry';
+    const message = contactForm.querySelector('#c-message').value;
+
     const data = {
-      name:    contactForm.querySelector('#c-fname').value + ' ' + contactForm.querySelector('#c-lname').value,
-      email:   contactForm.querySelector('#c-email').value,
-      phone:   contactForm.querySelector('#c-phone').value,
-      message: contactForm.querySelector('#c-message').value,
+      name: fname + ' ' + lname,
+      email: email,
+      phone: phone,
+      subject: subject,
+      message: message,
     };
 
     try {
+      // Try to save to table API
       await fetch('tables/contact_messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -170,15 +179,30 @@ if (contactForm) {
       console.warn('Table API not available.');
     }
 
-    setTimeout(() => {
-      if (contactMsg) {
-        contactMsg.style.display = 'flex';
-        contactMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Send email via EmailJS
+    try {
+      if (typeof emailjs !== 'undefined') {
+        await emailjs.send('service_contact', 'template_contact', {
+          to_email: 'hello@vvek.dev',
+          from_email: email,
+          from_name: data.name,
+          subject: subject,
+          message: message,
+          phone: phone,
+          reply_to: email
+        });
+        console.log('Email sent successfully');
+      } else {
+        console.warn('EmailJS not loaded');
       }
-      contactForm.reset();
-      btn.innerHTML = origText;
-      btn.disabled = false;
-    }, 1000);
+    } catch (err) {
+      console.warn('Email sending failed:', err);
+    }
+
+    // Redirect to thank you page after a short delay
+    setTimeout(() => {
+      window.location.href = 'thankyou.html';
+    }, 800);
   });
 }
 

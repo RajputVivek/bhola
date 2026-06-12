@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank you for contacting The Family Dental Care in Gurgaon. We'll be in touch soon!" />
+  <title>Thank You | The Family Dental Care</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Thank you page styles */
+    .thankyou-section {
+      background: linear-gradient(135deg, rgba(42,157,143,0.05), rgba(126,235,220,0.05));
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thankyou-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .thankyou-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--primary-light), #e0f8f4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 32px;
+      animation: scaleIn 0.5s ease;
+    }
+
+    .thankyou-content h1 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .thankyou-content p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .thankyou-details {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-light), #e0f8f4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .detail-text h4 {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .detail-text p {
+      color: var(--text-light);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .thankyou-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(42,157,143,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(42,157,143,0.45);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(42,157,143,0.05);
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .thankyou-section {
+        padding: 80px 0;
+      }
+
+      .thankyou-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .thankyou-content p {
+        font-size: 1rem;
+      }
+
+      .thankyou-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="The Family Dental Care Home">
+        <div class="logo-icon" aria-hidden="true">🦷</div>
+        <div>The Family Dental Care<span>Gurgaon, Haryana</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ─── THANK YOU SECTION ─────────────────────────────────── -->
+<section class="thankyou-section" aria-label="Thank you message">
+  <div class="container">
+    <div class="thankyou-content">
+      <div class="thankyou-icon">
+        <i class="fa fa-check"></i>
+      </div>
+      <h1>Thank You!</h1>
+      <p>Your message has been successfully sent. We appreciate you reaching out to us.</p>
+
+      <div class="thankyou-details">
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div class="detail-text">
+            <h4>Email Confirmation</h4>
+            <p>A confirmation email has been sent to your inbox. Please check your spam folder if you don't see it.</p>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fa fa-clock"></i>
+          </div>
+          <div class="detail-text">
+            <h4>Response Time</h4>
+            <p>We typically respond to messages within 24 hours during business hours.</p>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fa fa-phone"></i>
+          </div>
+          <div class="detail-text">
+            <h4>Need Immediate Help?</h4>
+            <p>Call us at <strong>+91 9319938893</strong> to speak with our team directly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="btn-primary">
+          <i class="fa fa-home"></i> Back to Home
+        </a>
+        <a href="booking.html" class="btn-secondary">
+          <i class="fa fa-calendar"></i> Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <div class="logo-icon">🦷</div>
+          <div>
+            <strong>The Family Dental Care</strong>
+            <span>Gurgaon, Haryana</span>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;margin-top:12px;">Your smile, our priority. Premium dental care for the whole family.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+          <li><a href="index.html" style="color:inherit;text-decoration:none;font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">Home</a></li>
+          <li><a href="about.html" style="color:inherit;text-decoration:none;font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">About Us</a></li>
+          <li><a href="contact.html" style="color:inherit;text-decoration:none;font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">Contact</a></li>
+          <li><a href="booking.html" style="color:inherit;text-decoration:none;font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">Book Now</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p style="font-size:0.85rem;margin:0 0 12px 0;">
+          <i class="fa fa-map-marker-alt" style="color:var(--primary);margin-right:8px;"></i>
+          W-2/1, Basement Floor, W Block<br>
+          Sector 24, DLF Phase 3, Gurgaon
+        </p>
+        <p style="font-size:0.85rem;margin:0 0 12px 0;">
+          <i class="fa fa-phone" style="color:var(--primary);margin-right:8px;"></i>
+          <a href="tel:+919319938893" style="color:inherit;text-decoration:none;">+91 9319938893</a>
+        </p>
+        <p style="font-size:0.85rem;margin:0;">
+          <i class="fa fa-envelope" style="color:var(--primary);margin-right:8px;"></i>
+          <a href="mailto:thefamilydentalcaree@gmail.com" style="color:inherit;text-decoration:none;">thefamilydentalcaree@gmail.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--border);padding-top:32px;margin-top:40px;text-align:center;font-size:0.8rem;color:var(--text-light);">
+      <p>&copy; 2025 The Family Dental Care. All rights reserved. | <a href="#" style="color:inherit;text-decoration:none;">Privacy Policy</a> | <a href="#" style="color:inherit;text-decoration:none;">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
