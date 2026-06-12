@@ -2,6 +2,18 @@
    THE FAMILY DENTAL CARE — Main JavaScript
    ============================================================ */
 
+// ─── EmailJS Initialization ────────────────────────────────
+function initEmailJS() {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init('ibdPGGKPPyd5cSbLS');
+    console.log('EmailJS initialized successfully');
+  } else {
+    // Retry if emailjs hasn't loaded yet
+    setTimeout(initEmailJS, 500);
+  }
+}
+initEmailJS();
+
 // ─── Navbar Scroll Effect ───────────────────────────────────
 const navbar = document.getElementById('navbar');
 if (navbar) {
