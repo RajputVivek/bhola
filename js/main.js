@@ -141,6 +141,28 @@ function formatDate(dateStr) {
   return d.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+// ─── Contact Form Validation ────────────────────────────────
+function validateContactForm(form) {
+  const errors = [];
+  const fname = form.querySelector('#c-fname').value.trim();
+  const lname = form.querySelector('#c-lname').value.trim();
+  const email = form.querySelector('#c-email').value.trim();
+  const message = form.querySelector('#c-message').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!fname) errors.push('First name is required');
+  if (!lname) errors.push('Last name is required');
+  if (!email) {
+    errors.push('Email address is required');
+  } else if (!emailRegex.test(email)) {
+    errors.push('Please enter a valid email address');
+  }
+  if (!message) errors.push('Message is required');
+  if (message.length < 10) errors.push('Message must be at least 10 characters');
+
+  return errors;
+}
+
 // ─── Contact Form Submission ─────────────────────────────────
 const contactForm = document.getElementById('contact-form');
 const contactMsg  = document.getElementById('contact-success');
@@ -150,15 +172,23 @@ if (contactForm) {
     e.preventDefault();
     const btn = contactForm.querySelector('[type="submit"]');
     const origText = btn.innerHTML;
+
+    // Validate form
+    const errors = validateContactForm(contactForm);
+    if (errors.length > 0) {
+      alert('Please fix the following:\n\n' + errors.join('\n'));
+      return;
+    }
+
     btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
-    const fname = contactForm.querySelector('#c-fname').value;
-    const lname = contactForm.querySelector('#c-lname').value;
-    const email = contactForm.querySelector('#c-email').value;
-    const phone = contactForm.querySelector('#c-phone').value;
+    const fname = contactForm.querySelector('#c-fname').value.trim();
+    const lname = contactForm.querySelector('#c-lname').value.trim();
+    const email = contactForm.querySelector('#c-email').value.trim();
+    const phone = contactForm.querySelector('#c-phone').value.trim();
     const subject = contactForm.querySelector('#c-subject').value || 'General Inquiry';
-    const message = contactForm.querySelector('#c-message').value;
+    const message = contactForm.querySelector('#c-message').value.trim();
 
     const data = {
       name: fname + ' ' + lname,
