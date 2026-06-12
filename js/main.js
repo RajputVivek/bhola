@@ -227,11 +227,11 @@ if (contactForm) {
         const response = await emailjs.send('service_dy8gelq', 'template_2fjy5ni', {
           to_email: 'hello@vvek.dev',
           from_email: email,
-          from_name: data.name,
-          subject: subject,
+          name: data.name,
+          title: subject,
           message: message,
           phone: phone,
-          reply_to: email
+          email: email
         });
         console.log('Email sent successfully:', response);
       } else {
