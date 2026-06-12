@@ -6,13 +6,25 @@
 function initEmailJS() {
   if (typeof emailjs !== 'undefined') {
     emailjs.init('ibdPGGKPPyd5cSbLS');
-    console.log('EmailJS initialized successfully');
+    console.log('✓ EmailJS initialized successfully');
+    return true;
   } else {
-    // Retry if emailjs hasn't loaded yet
-    setTimeout(initEmailJS, 500);
+    console.log('Waiting for EmailJS to load...');
+    return false;
   }
 }
-initEmailJS();
+
+// Try to initialize immediately, then retry every 200ms for up to 5 seconds
+let initAttempts = 0;
+const maxAttempts = 25; // 25 * 200ms = 5 seconds
+const initInterval = setInterval(() => {
+  if (initEmailJS()) {
+    clearInterval(initInterval);
+  } else if (++initAttempts >= maxAttempts) {
+    console.error('EmailJS failed to load after 5 seconds');
+    clearInterval(initInterval);
+  }
+}, 200);
 
 // ─── Navbar Scroll Effect ───────────────────────────────────
 const navbar = document.getElementById('navbar');
