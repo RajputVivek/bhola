@@ -224,7 +224,7 @@ if (contactForm) {
     // Send email via EmailJS
     try {
       if (typeof emailjs !== 'undefined') {
-        await emailjs.send('service_contact', 'template_contact', {
+        const response = await emailjs.send('service_contact', 'template_contact', {
           to_email: 'hello@vvek.dev',
           from_email: email,
           from_name: data.name,
@@ -233,12 +233,20 @@ if (contactForm) {
           phone: phone,
           reply_to: email
         });
-        console.log('Email sent successfully');
+        console.log('Email sent successfully:', response);
       } else {
-        console.warn('EmailJS not loaded');
+        console.error('EmailJS not loaded');
+        alert('Email service is not available. Please try again later.');
+        btn.innerHTML = origText;
+        btn.disabled = false;
+        return;
       }
     } catch (err) {
-      console.warn('Email sending failed:', err);
+      console.error('Email sending failed:', err);
+      alert('Error sending email: ' + (err.text || err.message || 'Unknown error'));
+      btn.innerHTML = origText;
+      btn.disabled = false;
+      return;
     }
 
     // Redirect to thank you page after a short delay
