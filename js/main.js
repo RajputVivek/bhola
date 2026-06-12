@@ -224,7 +224,7 @@ if (contactForm) {
     // Send email via EmailJS
     try {
       if (typeof emailjs !== 'undefined') {
-        const response = await emailjs.send('service_contact', 'template_contact', {
+        const response = await emailjs.send('service_dy8gelq', 'template_2fjy5ni', {
           to_email: 'hello@vvek.dev',
           from_email: email,
           from_name: data.name,
